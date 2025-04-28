@@ -5,13 +5,14 @@ public class VetInvertido {
 	public VetInvertido() {
 		super ();
 	}
-	public int[] RecebeVetor(int [] vet1, int [] vet2, int i){ // vet1 carregado e vet2 vazio.
-		if (i == vet2.length) {
-			return vet2;
+	
+	public int[] inverteVetor (int [] vet,  int i){ 
+		if (i >= vet.length/2) {
+			return vet;
 		}
-		else {
-			vet2[i] = vet1[vet1.length - 1 - i];
-			return RecebeVetor(vet1, vet2, i + 1);
+		int temp = vet[i];
+		vet[i] = vet[vet.length - 1 - i];
+		vet[vet.length - 1 - i] = temp;
+		return inverteVetor (vet, i + 1);
 		}
 	}
-}
